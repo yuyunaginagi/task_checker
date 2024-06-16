@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export const Home = () => {
   return (
-    <div>
-      <h1>
-        HelloWorld
-      </h1>
-    </div>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "#f6f8f9",
+      }}
+    ></div>
   );
 };
