@@ -5,6 +5,7 @@ import { GenreBody } from "./genreBody";
 interface Props {
   handleClose: () => void;
   isOpen: boolean;
+  body: string;
 }
 
 const customStyles = {
@@ -22,6 +23,17 @@ const customStyles = {
   },
 };
 
+const renderBody = (body: string) => {
+  switch (body) {
+    case "taskBody":
+      return "";
+    case "genreBody":
+      return <GenreBody />;
+    default:
+      return <div />;
+  }
+};
+
 export const FormModal = (props: Props) => {
 
   Modal.setAppElement("#root");
@@ -33,7 +45,7 @@ export const FormModal = (props: Props) => {
         onRequestClose={props.handleClose}
         style={customStyles}
       >
-        <GenreBody />
+        {renderBody(props.body)}
       </Modal>
     </div>
   );
