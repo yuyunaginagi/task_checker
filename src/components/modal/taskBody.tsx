@@ -13,7 +13,7 @@ export const TaskBody = () => {
         </div>
         <h4 className="input_title">タイトル</h4>
         <input type="text" />
-        <h4 className="input_title">説明</h4>
+        <h4 className="input_title">説明文</h4>
         <textarea />
         <h4 className="input_title">期限</h4>
         <input className="input_date" type="date" />
