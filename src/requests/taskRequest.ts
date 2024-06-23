@@ -8,5 +8,14 @@ const api = axiosBase.create({
 });
 
 export const taskRequest: (action: action) => any = (action: action) => {
-
+  switch (action) {
+    case "fetchTasks":
+      const fetchTasks = api.get("/");
+      return fetchTasks.data;
+    case "createTasks":
+      const createTasks = api.post("/", "Hello World");
+      return createTasks.data;
+    default:
+      return null;
+  }
 };
