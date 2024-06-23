@@ -14,7 +14,7 @@ export const genreRequest: (action: action) => any = async (action: action) => {
       return fetchGenres.data;
     case "createGenres":
       const createGenres = await api.post("/", "Hello World");
-      return creategenres.data;
+      return createGenres.data;
     default:
       return null;
   }
