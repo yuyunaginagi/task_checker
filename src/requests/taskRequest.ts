@@ -7,13 +7,13 @@ const api = axiosBase.create({
   responseType: "json",
 });
 
-export const taskRequest: (action: action) => any = (action: action) => {
+export const taskRequest: (action: action) => any = async (action: action) => {
   switch (action) {
     case "fetchTasks":
-      const fetchTasks = api.get("/");
+      const fetchTasks = await api.get("/");
       return fetchTasks.data;
     case "createTasks":
-      const createTasks = api.post("/", "Hello World");
+      const createTasks = await api.post("/", "Hello World");
       return createTasks.data;
     default:
       return null;
