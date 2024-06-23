@@ -18,18 +18,17 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    const showGenres = async () => {
-      const response = await genreRequest('fetchGenres');
-      console.log(response)
-    }
-    const showTasks = async () => {
-      const response = await taskRequest('fetchTasks');
-      console.log(response)
-    }
-    showGenres();
-    showTasks()
-  }, [])
+    const fetchData = async () => {
+      await genreRequest('fetchGenres');
+      dispatch({ type: "genresUpdate" });
+    };
+    fetchData();
+  }, []);
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+  
   return (
     <div className="main">
       <Header />
