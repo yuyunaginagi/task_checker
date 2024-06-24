@@ -12,7 +12,7 @@ export type Data = {
   genresData: GenreType[];
 };
 
-export const useDataReducer = (): any => {
+export const useDataReducer = (): [Date, ({ type, payload }: dataAction) => void] => {
   const initialData = {
     tasksData: [
       {
