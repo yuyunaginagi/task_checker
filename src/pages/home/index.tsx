@@ -27,7 +27,6 @@ export const Home = () => {
       dispatch({ type: "tasksUpdate", payload: { task: tasks } });
     };
     fetchData();
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -38,7 +37,7 @@ export const Home = () => {
     <div className="main">
       <Header />
       <div className="genre">
-        <Select />
+        <Select genres={data.genresData} />
         <AddCircleOutlineIcon
           className="add_circle_outline_icon"
           fontSize="medium"
