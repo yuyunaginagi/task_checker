@@ -14,9 +14,18 @@ export type Data = {
 
 export const useDataReducer = (): any => {
   const initialData = {
-    tasksData: [],
-    genreData: []
-  }
+    tasksData: [
+      {
+        id: 0,
+        name: "",
+        explanation: "",
+        deadlineDate: "",
+        status: 0,
+        genreId: 0,
+      },
+    ],
+    genreData: [{ id: 0, name: ""}],
+  };
 
   const reducer = (state: Data, action: dataAction) => {
     switch (action.type) {
