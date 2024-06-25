@@ -5,7 +5,6 @@ import { ToDoList } from "../../components/toDoList";
 import { FormModal } from "../../components/modal";
 import { taskRequest } from "../../requests/taskRequest";
 import { genreRequest } from "../../requests/genreRequest";
-import { useDataReducer } from "../../hooks/useDataReducer";
 import { Data, dataAction, useDataReducer } from "../../hooks/useDataReducer";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import "./style.css";
