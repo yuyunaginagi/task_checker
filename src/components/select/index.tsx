@@ -10,7 +10,7 @@ const renderOption = (props: Props) => {
   return (
     props.genres &&
     props.genres.map((genre: GenreType) => (
-      <option key { genre.id } value = {genre.id}>
+      <option key={ genre.id } value = {genre.id}>
         {genre.name}
       </option>
     ))
