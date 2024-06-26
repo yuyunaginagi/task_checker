@@ -33,6 +33,11 @@ export const Home = () => {
     setIsOpen(false);
   };
 
+  const changeSelectGenreId = (event: any) => {
+    const id = event.target.value;
+    setSelectGenreId(id);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const genres = await genreRequest('fetchGenres');
@@ -41,6 +46,7 @@ export const Home = () => {
       dispatch({ type: "tasksUpdate", payload: { task: tasks } });
     };
     fetchData();
+    //eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -53,14 +59,14 @@ export const Home = () => {
       payload: { tasks: data.tasksData, genreid: selectGenreId },
     });
     //eslint-disable-next-line
-  }, [data.tasksData]);
+  }, [data.tasksData, selectGenreId]);
 
   return (
     <DataContext.Provider value={{ data, dispatch }}>
       <div className="main">
         <Header />
         <div className="genre">
-          <Select genres={data.genresData} />
+          <Select genres={data.genresData} changeSelect={changeSelectGenreId} />
           <AddCircleOutlineIcon
             className="add_circle_outline_icon"
             fontSize="medium"
