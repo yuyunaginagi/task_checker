@@ -6,6 +6,7 @@ import { FormModal } from "../../components/modal";
 import { taskRequest } from "../../requests/taskRequest";
 import { genreRequest } from "../../requests/genreRequest";
 import { Data, dataAction, useDataReducer } from "../../hooks/useDataReducer";
+import { useFilterTasks } from "../../hooks/useFilterTasks";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import "./style.css";
 
@@ -21,7 +22,10 @@ export const DataContext = React.createContext<dataContextType>(
 export const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, dispatch] = useDataReducer();
+  //eslint-disable-next-line
   const [selectGenreId, setSelectGenreId] = useState<number>(0)
+  //eslint-disable-next-line
+  const [filteredTasks, tasksDispatch] = useFilterTasks();
   const handleOpen = () => {
     setIsOpen(true);
   };
@@ -42,7 +46,15 @@ export const Home = () => {
   useEffect(() => {
     console.log(data);
   }, [data]);
-  
+
+  useEffect(() => {
+    tasksDispatch({
+      type: "filterTask",
+      payload: { tasks: data.tasksData, genreid: selectGenreId },
+    });
+    //eslint-disable-next-line
+  }, [data.tasksData]);
+
   return (
     <DataContext.Provider value={{ data, dispatch }}>
       <div className="main">
@@ -61,7 +73,7 @@ export const Home = () => {
           />
         </div>
         <div className="contents">
-          <ToDoList tasks={data.tasksData} />
+          <ToDoList tasks={filteredTasks} />
         </div>
       </div>
     </DataContext.Provider>
