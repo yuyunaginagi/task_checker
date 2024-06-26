@@ -21,6 +21,7 @@ export const DataContext = React.createContext<dataContextType>(
 export const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, dispatch] = useDataReducer();
+  const [selectGenreId, setSelectGenreId] = useState<number>(0)
   const handleOpen = () => {
     setIsOpen(true);
   };
