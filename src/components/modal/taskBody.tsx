@@ -48,14 +48,14 @@ export const TaskBody = (props: Props) => {
 
   const onClickSubmit = async () => {
     const requestData = {
-      id: (props.task && props.taks.id) || 0,
+      id: (props.task && props.task.id) || 0,
       name: title,
       genreId: genreId,
       explanation: explanation,
       deadlineDate: deadlineDate,
       status: (props.task && props.task.status) || 0,
     };
-    if (props.task !== undefined)
+    if (props.task !== undefined) {
       try {
         const tasks: TaskType[] = await taskRequest("createTasks", {
           data: requestData,
@@ -97,8 +97,8 @@ export const TaskBody = (props: Props) => {
         <input
           className="input_date"
           type="date"
-          value={deadlineData}
-          onChange={handleChangeDeadlineData}
+          value={deadlineDate}
+          onChange={handleChangeDeadlineDate}
         />
       </div>
       <input

@@ -10,7 +10,10 @@ const api = axiosBase.create({
   responseType: "json",
 });
 
-export const genreRequest: (action: action, parameter?: parameter) => any = async (action: action, parameter?: parameter) => {
+export const genreRequest: (
+  action: action,
+  parameter?: parameter
+) => any = async (action: action, parameter?: parameter) => {
   if (parameter) {
     switch (action) {
       case "createGenres":
@@ -25,23 +28,10 @@ export const genreRequest: (action: action, parameter?: parameter) => any = asyn
   } else {
     switch (action) {
       case "fetchGenres":
-        const fetchGenres await api.get("/");
+        const fetchGenres = await api.get("/");
         return fetchGenres.data;
       default:
         return null;
     }
-  }
-};
-
-export const genreRequest: (action: action) => any = async (action: action) => {
-  switch (action) {
-    case "fetchGenres":
-      const fetchGenres = await api.get("/");
-      return fetchGenres.data;
-    case "createGenres":
-      const createGenres = await api.post("/", "Hello World");
-      return createGenres.data;
-    default:
-      return null;
   }
 };
