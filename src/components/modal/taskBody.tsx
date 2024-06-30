@@ -86,7 +86,7 @@ export const TaskBody = (props: Props) => {
         dispatch({ type: "tasksUpdate", payload: { task: tasks } });
       }
       props.handleClose();
-    } catch err: any) {
+    } catch (err: any) {
       console.log(err.message);
     }
   };
