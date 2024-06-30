@@ -1,7 +1,7 @@
 import axiosBase from "axios";
 import { TaskType } from "../interfaces/TaskType";
 
-type action = "fetchTasks" | "createTasks";
+type action = "fetchTasks" | "createTasks" | "updateTasks";
 
 type parameter = { data: TaskType };
 
@@ -17,6 +17,9 @@ export const taskRequest: (action: action, parameter?: parameter) => any = async
       case "createTasks":
         const createTasks = await api.post("/", parameter.data);
         return createTasks.data;
+      case "updateTasks":
+        const updateTasks = await api.put(`/${parameter.data.id}`, parameter.data);
+        return updateTasks.data;
       default:
         return null;
     }
