@@ -66,7 +66,7 @@ export const Home = () => {
   useEffect(() => {
     tasksDispatch({
       type: "filterTask",
-      payload: { tasks: data.tasksData, genreid: selectGenreId },
+      payload: { tasks: data.tasksData, genreId: selectGenreId },
     });
     //eslint-disable-next-line
   }, [data.tasksData, selectGenreId]);
