@@ -57,7 +57,7 @@ export const TaskBody = (props: Props) => {
     };
     if (props.task !== undefined) {
       try {
-        const tasks: TaskType[] = await taskRequest("createTasks", {
+        const tasks: TaskType[] = await taskRequest("updateTasks", {
           data: requestData,
         });
         dispatch({ type: "tasksUpdate", payload: { task: tasks } });

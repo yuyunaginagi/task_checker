@@ -13,7 +13,7 @@ export type Data = {
 };
 
 export const useDataReducer = (): [Data, ({ type, payload }: dataAction) => void] => {
-  const initialData = {
+  const initialData: Data = {
     tasksData: [
       {
         id: 0,
@@ -24,7 +24,7 @@ export const useDataReducer = (): [Data, ({ type, payload }: dataAction) => void
         genreId: 0,
       },
     ],
-    genreData: [{ id: 0, name: ""}],
+    genresData: [{ id: 0, name: ""}],
   };
 
   const reducer = (state: Data, action: dataAction) => {
