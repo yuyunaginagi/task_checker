@@ -48,7 +48,7 @@ export const GenreBody = () => {
           return (
             <li className="genre_title" key={genre.id}>
               <span>{genre.name}</span>
-              <CancelIcon />
+              <CancelIcon onClick={() => onClickDelete(genre)} />
             </li>
           );
         })}
