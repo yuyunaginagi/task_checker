@@ -104,9 +104,9 @@ export const TaskBody = (props: Props) => {
           />
         </div>
         <h4 className="input_title">タイトル</h4>
-        <input type="text" />
+        <input type="text" value={title} onChange={handleChangeTitle} />
         <h4 className="input_title">説明文</h4>
-        <textarea />
+        <textarea value={explanation} onChange={handleChangeExplanation} />
         <h4 className="input_title">期限</h4>
         <input
           className="input_date"

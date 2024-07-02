@@ -42,7 +42,7 @@ export const Task = (props: Props) => {
       style={{
         backgroundColor:
           new Date(props.task.deadlineDate) > new Date()
-            ? "white"
+              ? "white"
             : "rgb(250, 194, 194)",
       }}
     >
