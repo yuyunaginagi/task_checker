@@ -36,7 +36,7 @@ export const Select = (props: Props) => {
       onChange={props.changeSelect}
       value={props.initialValue}
     >
-      {!props.genres && <option value={0}></option>}
+      {props.genres !== undefined && <option value={0}></option>}
       {renderOption(props)}
     </select>
   );
